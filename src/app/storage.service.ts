@@ -30,6 +30,11 @@ export class storageService {
         this.datas.push(data);
     }
 
+    public modify(data: CurrencyData,name: string,price: number) {
+        data.name = name;
+        data.price = price;
+    }
+
     public getMaxId(): number {
         let biggest = 0;
         this.datas.forEach(element => {
@@ -39,6 +44,17 @@ export class storageService {
         });
 
         return biggest;
+    }
+
+    public find(id: number): CurrencyData | undefined {
+        let found = undefined;
+        this.datas.forEach(element => {
+            if ((element.id || 0)==id) {
+                found =  element;
+            }
+        });
+
+        return found;
     }
 
     public fetch(): Observable<any> {
