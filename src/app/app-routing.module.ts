@@ -7,8 +7,9 @@ import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'details', component: DetailsComponent,canActivate: [AuthGuard] },
+  { path: 'details/:id', component: DetailsComponent/*,canActivate: [AuthGuard]*/ },
   { path: 'list', component: ListComponent,canActivate: [AuthGuard] },
+  { path: '**', component: ListComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({

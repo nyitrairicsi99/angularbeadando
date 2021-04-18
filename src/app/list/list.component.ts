@@ -9,11 +9,13 @@ import { storageService } from '../storage.service';
       <thead>
         <th>Name</th>
         <th>Price</th>
+        <th>Delete</th>
       </thead>
       <tbody>
         <tr *ngFor="let data of service.datas">
           <td>{{data.name}}</td>
           <td>{{data.price}}</td>
+          <td><button mat-stroked-button color="primary">Delete</button></td>
         </tr>
       </tbody>
     </table>
@@ -34,12 +36,7 @@ export class ListComponent implements OnInit {
       this.service.fetch().subscribe(
         (data:any) => this.service.datas = data,
         error => console.log(error),
-        () => {
-          for (let i = 0; i < this.service.datas.length; i++) {
-            console.log(this.service.datas[i].name)
-            //this.service.datas[i] = new CurrencyData(datas[0],);
-          }
-        }
+        () => {}
       )
     }
   }
