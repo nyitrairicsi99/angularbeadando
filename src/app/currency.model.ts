@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   })
   export class CurrencyData {
     public name: string | undefined;
-    public price: BigInteger | undefined;
-    public id: BigInteger | undefined;
+    public price: number | undefined;
+    public id: number | undefined;
     constructor() {
     }
   

@@ -4,11 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 import { AuthGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
+import { AddComponent } from './add/add.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'details/:id', component: DetailsComponent/*,canActivate: [AuthGuard]*/ },
   { path: 'list', component: ListComponent,canActivate: [AuthGuard] },
+  { path: 'add', component: AddComponent,canActivate: [AuthGuard] },
   { path: '**', component: ListComponent,canActivate: [AuthGuard] },
 ];
 

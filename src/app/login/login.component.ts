@@ -5,12 +5,12 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   template: `
-    <p>
-      login works!
-      <input type="text" [(ngModel)]="username">
-      <input type="password" [(ngModel)]="password">
+    <section id="login">
+      <h3>A továbblépéshez belépés szükséges!</h3>
+      <input type="text" [(ngModel)]="username"><br />
+      <input type="password" [(ngModel)]="password"><br /><br />
       <button (click)="login()">Login</button>
-    </p>
+    </section>
   `,
   styles: [
   ]
