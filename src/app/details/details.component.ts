@@ -8,7 +8,9 @@ import { storageService } from '../storage.service';
     <section id="login">
       <h3>{{this.text}} {{this.id}}</h3>
       Name: <input type="text" [(ngModel)]="name" placeholder={{this.name}}><br />
-      Price: <input type="text" [(ngModel)]="price" placeholder={{this.price}}><br /><br />
+      Price: <input type="text" [(ngModel)]="price" placeholder={{this.price}}>
+      <small id="pricehelp" class="form-text text-muted">Price has to be between 0 and 2000000</small>
+      <br />
       <button (click)="update()">{{this.buttonText}}</button>
     </section>
   `,

@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-login',
   template: `
     <section id="login">
-      <h3>A továbblépéshez belépés szükséges!</h3>
+      <h3>You have to log in to access the list!</h3>
       <input type="text" [(ngModel)]="username"><br />
       <input type="password" [(ngModel)]="password"><br /><br />
       <button (click)="login()">Login</button>
