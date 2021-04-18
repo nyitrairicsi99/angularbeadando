@@ -19,6 +19,7 @@ export class storageService {
         for (let i = 0; i < this.datas.length; i++) {
             if (this.datas[i]===data) {
                 this.datas.splice(i,1);
+                localStorage.setItem('dataSource', JSON.stringify(this.datas));
             }
         }
     }
@@ -26,13 +27,16 @@ export class storageService {
     public add(name: string,price: number) {
         let data = new CurrencyData();
         data.name = name;
-        data.price = price;
+        data.price = Number.parseInt(price.toString());
+        data.id = this.getMaxId()+1;
         this.datas.push(data);
+        localStorage.setItem('dataSource', JSON.stringify(this.datas));
     }
 
     public modify(data: CurrencyData,name: string,price: number) {
         data.name = name;
         data.price = price;
+        localStorage.setItem('dataSource', JSON.stringify(this.datas));
     }
 
     public getMaxId(): number {

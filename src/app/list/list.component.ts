@@ -39,11 +39,18 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.service.datas.length === 0) {
-      this.service.fetch().subscribe(
-        (data:any) => this.service.datas = data,
-        error => console.log(error),
-        () => {}
-      )
+      let dataSource: string | null = localStorage.getItem('dataSource');
+      if (dataSource==null) {
+        this.service.fetch().subscribe(
+          (data:any) => this.service.datas = data,
+          error => console.log(error),
+          () => {
+            localStorage.setItem('dataSource', JSON.stringify(this.service.datas));
+          }
+        )
+      } else {
+        this.service.datas = JSON.parse(dataSource);
+      }
     }
   }
 
